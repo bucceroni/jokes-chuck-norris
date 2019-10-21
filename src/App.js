@@ -1,9 +1,9 @@
 import React from 'react';
-
+import Menu from './components/Template/Menu'
 function App() {
   return (
     <div>
-      <span>Chuck Norris Jokes</span>
+      <Menu/>
     </div>
   );
 }
