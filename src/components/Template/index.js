@@ -1,23 +1,23 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 //MATERIAL-UI
-import { withStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
-import Drawer from "@material-ui/core/Drawer";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import { withStyles } from '@material-ui/core/styles';
+import clsx from 'clsx';
+import Drawer from '@material-ui/core/Drawer';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 //COMPONENTS
-import CategoryList from "./CategoryList";
+import CategoryList from '../CategoriesList';
 //CSS
-import styles from "./styles";
+import styles from './styles';
 
-class Menu extends Component {
+class Template extends Component {
   state = {
     open: false
   };
@@ -36,7 +36,7 @@ class Menu extends Component {
 
   render() {
     const { open } = this.state;
-    const { classes, children, theme } = this.props;
+    const { categoriesList, children, classes, theme } = this.props;
 
     return (
       <div className={classes.root}>
@@ -58,7 +58,7 @@ class Menu extends Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap>
-              Persistent drawer
+              Chuck Norris Jokes
             </Typography>
           </Toolbar>
         </AppBar>
@@ -73,7 +73,7 @@ class Menu extends Component {
         >
           <div className={classes.drawerHeader}>
             <IconButton onClick={this.handleDrawerClose}>
-              {theme.direction === "ltr" ? (
+              {theme.direction === 'ltr' ? (
                 <ChevronLeftIcon />
               ) : (
                 <ChevronRightIcon />
@@ -81,7 +81,7 @@ class Menu extends Component {
             </IconButton>
           </div>
           <Divider />
-          <CategoryList />
+          <CategoryList categories={categoriesList} />
         </Drawer>
         <main
           className={clsx(classes.content, {
@@ -96,4 +96,4 @@ class Menu extends Component {
   }
 }
 
-export default withStyles(styles, { withTheme: true })(Menu);
+export default withStyles(styles, { withTheme: true })(Template);
