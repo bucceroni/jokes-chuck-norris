@@ -14,7 +14,9 @@ const CategoriesList = props => {
     <List>
       {props.categories.map((item, index) => (
         <ListItem button key={index}>
-          <ListItemText style={styles.textCapitalize} primary={item} />
+          <ListItemText>
+            <span style={styles.textCapitalize}>{item}</span>
+          </ListItemText>
         </ListItem>
       ))}
     </List>

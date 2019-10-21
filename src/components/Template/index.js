@@ -55,10 +55,10 @@ class Template extends Component {
               edge="start"
               className={clsx(classes.menuButton, open && classes.hide)}
             >
-              <MenuIcon />
+              <MenuIcon/>
             </IconButton>
             <Typography variant="h6" noWrap>
-              Chuck Norris Jokes
+              <b>Chuck Norris Jokes</b>
             </Typography>
           </Toolbar>
         </AppBar>
@@ -74,9 +74,9 @@ class Template extends Component {
           <div className={classes.drawerHeader}>
             <IconButton onClick={this.handleDrawerClose}>
               {theme.direction === 'ltr' ? (
-                <ChevronLeftIcon />
+                <ChevronLeftIcon color="secondary" />
               ) : (
-                <ChevronRightIcon />
+                <ChevronRightIcon color="secondary"/>
               )}
             </IconButton>
           </div>
