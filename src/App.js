@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 //MATERIAL-UI
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
-import { Typography } from '@material-ui/core';
-//COMPONENTS
-import Template from './components/Template';
-//API
-import * as api from './api';
+//ROUTES
+import Routes from './routes';
 
 const theme = createMuiTheme({
   typography: {
@@ -29,24 +26,10 @@ const theme = createMuiTheme({
 });
 
 class App extends Component {
-  state = {
-    categoriesList: []
-  };
-  componentDidMount = async () => {
-    const data = await api.getCategories();
-    this.setState({
-      categoriesList: data
-    });
-  };
-
   render() {
-    const { categoriesList } = this.state;
     return (
       <ThemeProvider theme={theme}>
-        <Template categoriesList={categoriesList}>
-          <Typography>Home</Typography>
-          <Typography>Typography</Typography>
-        </Template>
+        <Routes />
       </ThemeProvider>
     );
   }

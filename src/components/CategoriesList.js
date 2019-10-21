@@ -2,6 +2,8 @@ import React from 'react';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+//REACT-ROUTER
+import { Link } from 'react-router-dom';
 
 const styles = {
   textCapitalize: {
@@ -10,10 +12,12 @@ const styles = {
 };
 
 const CategoriesList = props => {
+  const getLink = item => `/${item}`;
+
   return (
     <List>
       {props.categories.map((item, index) => (
-        <ListItem button key={index}>
+        <ListItem key={index} button to={getLink(item)} component={Link} >
           <ListItemText>
             <span style={styles.textCapitalize}>{item}</span>
           </ListItemText>
