@@ -1,36 +1,31 @@
 import React, { Component } from 'react';
+//REDUX
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from '../actions/actions';
 //REACT-ROUTER
 import { withRouter } from 'react-router-dom';
 //MATERIAL-UI
 import { Grid } from '@material-ui/core';
 //COMPONENTS
 import CategoryDetails from '../components/CategoryDetails';
-//API
-import * as api from '../api';
 
 class Category extends Component {
-  state = {
-    item: []
-  };
-
   componentDidMount = () => {
     this.getData();
   };
 
-  getData = async () => {
-    const { match } = this.props;
-    const data = await api.getCategory(match.params.category);
-    this.setState({
-      item: data
-    });
+  getData = () => {
+    const { actions, match } = this.props;
+    actions.getCategoryItem(match.params.category);
   };
 
   render() {
-    const { item } = this.state;
+    const { categoryItem } = this.props;
 
     return (
       <Grid>
-        <CategoryDetails item={item} onClick={this.getData} />
+        <CategoryDetails item={categoryItem} nextItem={this.getData} />
       </Grid>
     );
   }
@@ -43,4 +38,26 @@ class Category extends Component {
   };
 }
 
-export default withRouter(Category);
+const mapStateToProps = state => {
+  return {
+    categoryItem: state.reducer.categoryItem
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    actions: bindActionCreators(
+      {
+        ...actions
+      },
+      dispatch
+    )
+  };
+};
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Category)
+);

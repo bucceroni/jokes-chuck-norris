@@ -15,16 +15,18 @@ const styles = {
 };
 
 const CategoryDetails = props => {
-  const { item, onClick } = props;
+  const { item, nextItem } = props;
   return (
-    <div style={styles.root}>
-      <span style={styles.imageText}>Category {item.categories}</span>
-      <img src={item.icon_url} alt="chucknorris" />
-      <span style={styles.imageText}>{item.value}</span>
-      <span style={styles.imageText}>Created at:{item.created_at}</span>
-      <span style={styles.imageText}>Updated at:{item.updated_at}</span>
-      <button onClick={() => onClick()}>Next Joke</button>
-    </div>
+    item && (
+      <div style={styles.root}>
+        <span style={styles.imageText}>Category {item.categories}</span>
+        <img src={item.icon_url} alt="chucknorris" />
+        <span style={styles.imageText}>{item.value}</span>
+        <span style={styles.imageText}>Created at:{item.created_at}</span>
+        <span style={styles.imageText}>Updated at:{item.updated_at}</span>
+        <button onClick={() => nextItem()}>Next Joke</button>
+      </div>
+    )
   );
 };
 
