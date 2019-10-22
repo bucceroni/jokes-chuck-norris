@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 //CONTAINERS
 import Home from './containers/Home';
-import CategoryDetails from './containers/CategoryDetails';
+import Category from './containers/Category';
 import NotFound from './containers/NotFound';
 //COMPONENTS
 import Template from './components/Template';
@@ -28,7 +28,7 @@ class Routes extends Component {
         <Template categoriesList={categoriesList}>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/:category" component={CategoryDetails} />
+            <Route exact path="/:category" component={Category} />
             <Route path="*" component={NotFound} />
           </Switch>
         </Template>

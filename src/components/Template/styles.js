@@ -40,6 +40,9 @@ const styles = theme => ({
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end'
   },
+  textButton: {
+    cursor: 'pointer'
+  },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),

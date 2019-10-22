@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+//REACT-ROUTER
+import { withRouter } from 'react-router-dom';
 //MATERIAL-UI
 import { withStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -36,7 +38,7 @@ class Template extends Component {
 
   render() {
     const { open } = this.state;
-    const { categoriesList, children, classes, theme } = this.props;
+    const { categoriesList, children, history, classes, theme } = this.props;
 
     return (
       <div className={classes.root}>
@@ -55,10 +57,15 @@ class Template extends Component {
               edge="start"
               className={clsx(classes.menuButton, open && classes.hide)}
             >
-              <MenuIcon/>
+              <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap>
-              <b>Chuck Norris Jokes</b>
+              <b
+                className={classes.textButton}
+                onClick={() => history.push('/')}
+              >
+                Chuck Norris Jokes
+              </b>
             </Typography>
           </Toolbar>
         </AppBar>
@@ -76,7 +83,7 @@ class Template extends Component {
               {theme.direction === 'ltr' ? (
                 <ChevronLeftIcon color="secondary" />
               ) : (
-                <ChevronRightIcon color="secondary"/>
+                <ChevronRightIcon color="secondary" />
               )}
             </IconButton>
           </div>
@@ -96,4 +103,4 @@ class Template extends Component {
   }
 }
 
-export default withStyles(styles, { withTheme: true })(Template);
+export default withRouter(withStyles(styles, { withTheme: true })(Template));
