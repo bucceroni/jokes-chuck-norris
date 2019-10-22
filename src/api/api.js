@@ -13,5 +13,5 @@ export const getCategoryItem = async category => {
   return await axios
     .get(`${URL}/random?category=${category}`)
     .then(res => res.data)
-    .catch(error => console.log(error));
+    .catch(() => 'Category not found !');
 };

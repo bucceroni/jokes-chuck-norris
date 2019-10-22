@@ -20,7 +20,7 @@ const CategoriesList = props => {
       {props.categories.map((item, index) => (
         <ListItem key={index} button to={getLink(item)} component={Link}>
           <ListItemText>
-            <span style={styles.textCapitalize}>{item}</span>
+            <b style={styles.textCapitalize}>{item}</b>
           </ListItemText>
         </ListItem>
       ))}

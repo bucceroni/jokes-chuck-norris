@@ -1,25 +1,13 @@
 import React from 'react';
+//MATERIAL-UI
+import { Grid, Typography } from '@material-ui/core';
 
-const styles = {
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  imageText: {
-    fontSize: '18px',
-    fontWeight: 'bold',
-    textAlign: 'center'
-  }
-};
-
-const Home = () => {
+const NotFound = () => {
   return (
-    <div style={styles.root}>
-      <span style={styles.imageText}>Not Found</span>
-    </div>
+    <Grid container direction="column" justify="center" alignItems="center">
+      <Typography>Not Found !</Typography>
+    </Grid>
   );
 };
 
-export default Home;
+export default NotFound;

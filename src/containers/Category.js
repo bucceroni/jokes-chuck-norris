@@ -22,7 +22,6 @@ class Category extends Component {
 
   render() {
     const { categoryItem } = this.props;
-
     return (
       <Grid>
         <CategoryDetails item={categoryItem} nextItem={this.getData} />
