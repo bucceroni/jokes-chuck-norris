@@ -15,10 +15,3 @@ export const getCategory = async id => {
     .then(res => res.data)
     .catch(error => console.log(error));
 };
-
-export const getNextCategory = async id => {
-  return await axios
-    .get(`${URL}/random?category=${id}`)
-    .then(res => res.data)
-    .catch(error => console.log(error));
-};

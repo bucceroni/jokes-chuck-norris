@@ -1,31 +1,31 @@
 import React from 'react';
-//REACT-ROUTER
-import { Link } from 'react-router-dom';
-//MATERIAL-UI
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 
 const styles = {
-  textCapitalize: {
-    textTransform: 'capitalize'
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  imageText: {
+    fontSize: '18px',
+    fontWeight: 'bold',
+    textAlign: 'center'
   }
 };
 
-const CategoriesList = props => {
-  const getLink = item => `/${item}`;
-
+const CategoryDetails = props => {
+  const { item, onClick } = props;
   return (
-    <List>
-      {props.categories.map((item, index) => (
-        <ListItem key={index} button to={getLink(item)} component={Link}>
-          <ListItemText>
-            <span style={styles.textCapitalize}>{item}</span>
-          </ListItemText>
-        </ListItem>
-      ))}
-    </List>
+    <div style={styles.root}>
+      <span style={styles.imageText}>Category {item.categories}</span>
+      <img src={item.icon_url} alt="chucknorris" />
+      <span style={styles.imageText}>{item.value}</span>
+      <span style={styles.imageText}>Created at:{item.created_at}</span>
+      <span style={styles.imageText}>Updated at:{item.updated_at}</span>
+      <button onClick={() => onClick()}>Next Joke</button>
+    </div>
   );
 };
 
-export default CategoriesList;
+export default CategoryDetails;

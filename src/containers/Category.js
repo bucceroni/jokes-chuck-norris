@@ -3,12 +3,14 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 //MATERIAL-UI
 import { Grid } from '@material-ui/core';
+//COMPONENTS
+import CategoryDetails from '../components/CategoryDetails';
 //API
 import * as api from '../api';
 
 class Category extends Component {
   state = {
-    category: []
+    item: []
   };
 
   componentDidMount = () => {
@@ -19,18 +21,16 @@ class Category extends Component {
     const { match } = this.props;
     const data = await api.getCategory(match.params.category);
     this.setState({
-      category: data
+      item: data
     });
   };
 
   render() {
-    const { category } = this.state;
+    const { item } = this.state;
 
     return (
       <Grid>
-        <span>Category</span>
-        <span>{JSON.stringify(category)}</span>
-        <button onClick={() => this.getData()}>Next Joke</button>
+        <CategoryDetails item={item} onClick={this.getData} />
       </Grid>
     );
   }
