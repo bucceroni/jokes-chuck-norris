@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <Grid container direction="column" justify="center" alignItems="center">
       <img src={img_chucknorris} alt="chucknorris" />
-      <Typography>
+      <Typography align="center" variant="body1">
         Here are the best "jokes" about the one and only, Chuck Norris !
       </Typography>
     </Grid>

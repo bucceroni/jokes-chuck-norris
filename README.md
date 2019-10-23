@@ -25,6 +25,7 @@ Aplicação web consumindo API do [ChuckNorris.io](https://api.chucknorris.io/)
     - Redux Thunk - `npm install redux-thunk`
     - Redux - `npm install redux`
     - React Redux - `npm install react-redux`
+    - Moment - `npm install moment`
 
 - Back
 
