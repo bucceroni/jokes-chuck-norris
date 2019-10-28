@@ -88,7 +88,7 @@ class Template extends Component {
             </IconButton>
           </div>
           <Divider />
-          <CategoryList categories={categoriesList} />
+          <CategoryList categories={categoriesList} handleDrawerClose={this.handleDrawerClose}/>
         </Drawer>
         <main
           className={clsx(classes.content, {

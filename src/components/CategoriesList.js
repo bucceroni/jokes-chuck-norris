@@ -18,7 +18,7 @@ const CategoriesList = props => {
   return (
     <List>
       {props.categories.map((item, index) => (
-        <ListItem key={index} button to={getLink(item)} component={Link}>
+        <ListItem key={index} button to={getLink(item)} component={Link} onClick={() => props.handleDrawerClose()}>
           <ListItemText>
             <b style={styles.textCapitalize}>{item}</b>
           </ListItemText>
